@@ -1,10 +1,14 @@
 import cors from "cors";
 import express from "express";
+import { fileURLToPath } from "node:url";
+import { dirname } from "node:path";
 import path from "path";
 import { contactRouter } from "./routes/contact.js";
 
 const app = express();
 const PORT = Number(process.env.PORT) || 3001;
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 app.use(cors({ origin: true, credentials: true }));
 app.use(express.json());
