@@ -1,5 +1,6 @@
 import cors from "cors";
 import express from "express";
+import path from "path";
 import { contactRouter } from "./routes/contact.js";
 
 const app = express();
@@ -13,6 +14,14 @@ app.get("/api/health", (_req, res) => {
 });
 
 app.use("/api/contact", contactRouter);
+
+// Serve static files from the React app build directory
+app.use(express.static(path.join(__dirname, '../../dist')));
+
+// Catch all handler: send back React's index.html file for any non-API routes
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../../dist/index.html'));
+});
 
 app.listen(PORT, () => {
   console.log(`API running at http://localhost:${PORT}`);

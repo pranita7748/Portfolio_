@@ -19,21 +19,23 @@ const activities = [
   highlights: ["Financial Management", "Ideation & Strategy", "Event Planning"],
   period: "2025 - Present"
 },
+ 
   {
+    role: "Editorial & EPM Team Member",
+    organization: "TEDxKKWIEER",
+    description: "Contributing to content creation, event documentation, and promotional materials for TEDx events at our institution.",
+    icon: Mic2,
+    highlights: ["Content Writing", "Event Documentation", "Team Collaboration"],
+    period: "2026 - Present",
+  },
+
+   {
     role: "Event Management Team",
     organization: "FOSS Club",
     description: "Organizing open-source events, hackathons, and technical workshops. Promoting free and open-source software culture on campus.",
     icon: Calendar,
     highlights: ["Workshop Coordination", "Community Building"],
     period: "2025 - 2026",
-  },
-  {
-    role: "Editorial Team",
-    organization: "TEDx EPM",
-    description: "Contributing to content creation, event documentation, and promotional materials for TEDx events at our institution.",
-    icon: Mic2,
-    highlights: ["Content Writing", "Event Documentation", "Team Collaboration"],
-    period: "2026 - Present",
   },
   {
   role: "Participants Affairs Team Member",
