@@ -29,9 +29,9 @@ type ContactFormValues = z.infer<typeof contactSchema>;
 const inputClassName =
   "w-full px-4 py-3 rounded-lg bg-card border border-border focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-all";
 const textareaClassName = `${inputClassName} resize-none min-h-[120px]`;
-const contactEmail = import.meta.env.VITE_CONTACT_EMAIL || "";
-const linkedinUrl = import.meta.env.VITE_LINKEDIN_URL || "";
-const githubUrl = import.meta.env.VITE_GITHUB_URL || "";
+const contactEmail = "patilpranita8788@gmail.com";
+const linkedinUrl = "https://www.linkedin.com/in/pranita-patil-0685762a8/";
+const githubUrl = "https://github.com/pranita7748";
 const contactLocation = import.meta.env.VITE_CONTACT_LOCATION || "India";
 
 export const Contact = () => {
@@ -86,7 +86,7 @@ export const Contact = () => {
           <AnimatedSection direction="left" delay={0.2}>
             <div className="space-y-4 sm:space-y-6">
               <motion.a
-                href={contactEmail ? `mailto:${contactEmail}` : "#"}
+                href={contactEmail ? `mailto:${contactEmail}` : "https://mail.google.com/mail/u/0/#inbox"}
                 className="flex items-start gap-3 rounded-xl border border-border bg-card p-4 transition-colors hover:border-primary/50 sm:gap-4"
                 whileHover={{ x: 5 }}
                 transition={{ duration: 0.2 }}
@@ -97,13 +97,13 @@ export const Contact = () => {
                 <div>
                   <h4 className="font-semibold mb-1">Email</h4>
                   <span className="break-all text-sm text-muted-foreground transition-colors hover:text-primary sm:text-base">
-                    {contactEmail || "Add VITE_CONTACT_EMAIL in .env"}
+                    {contactEmail}
                   </span>
                 </div>
               </motion.a>
 
               <motion.a
-                href={linkedinUrl || "#"}
+                href={linkedinUrl || "https://www.linkedin.com/in/pranita-patil-0685762a8/"}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-start gap-3 rounded-xl border border-border bg-card p-4 transition-colors hover:border-primary/50 sm:gap-4"
@@ -122,7 +122,7 @@ export const Contact = () => {
               </motion.a>
 
               <motion.a
-                href={githubUrl || "#"}
+                href={githubUrl || "https://github.com/pranita7748"}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-start gap-3 rounded-xl border border-border bg-card p-4 transition-colors hover:border-primary/50 sm:gap-4"
