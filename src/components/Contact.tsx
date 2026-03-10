@@ -29,6 +29,10 @@ type ContactFormValues = z.infer<typeof contactSchema>;
 const inputClassName =
   "w-full px-4 py-3 rounded-lg bg-card border border-border focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-all";
 const textareaClassName = `${inputClassName} resize-none min-h-[120px]`;
+const contactEmail = import.meta.env.VITE_CONTACT_EMAIL || "";
+const linkedinUrl = import.meta.env.VITE_LINKEDIN_URL || "";
+const githubUrl = import.meta.env.VITE_GITHUB_URL || "";
+const contactLocation = import.meta.env.VITE_CONTACT_LOCATION || "India";
 
 export const Contact = () => {
   const form = useForm<ContactFormValues>({
@@ -39,15 +43,24 @@ export const Contact = () => {
   const isSubmitting = form.formState.isSubmitting;
 
   async function onSubmit(values: ContactFormValues) {
-    const res = await postContact(values);
-    if (res.success) {
+    const payload = contactSchema.parse(values) as Parameters<typeof postContact>[0];
+    const res = await postContact(payload);
+
+    if (res.success === false) {
+      toast.error("Couldn't send message", { description: res.error });
+      return;
+    }
+
+    if (res.delivered) {
       toast.success("Message sent!", {
         description: "Thanks for reaching out. I'll get back to you soon.",
       });
-      form.reset();
     } else {
-      toast.error("Couldn't send message", { description: res.error });
+      toast.warning("Message saved, but email alert is off", {
+        description: "Set CONTACT_INBOX and SMTP_* on server to receive inbox notifications.",
+      });
     }
+    form.reset();
   }
 
   return (
@@ -56,25 +69,25 @@ export const Contact = () => {
 
       <div className="container-narrow relative z-10">
         {/* Section Header */}
-        <AnimatedSection className="text-center mb-16">
+        <AnimatedSection className="mb-12 text-center md:mb-16">
           <p className="font-mono text-primary text-sm mb-2">06. Contact</p>
-          <h2 className="text-3xl md:text-5xl font-bold mb-6">
+          <h2 className="mb-4 text-2xl font-bold sm:text-3xl md:mb-6 md:text-5xl">
             Let's Connect
           </h2>
-          <p className="text-lg text-muted-foreground max-w-xl mx-auto">
+          <p className="mx-auto max-w-xl text-sm text-muted-foreground sm:text-base md:text-lg">
             I'm actively looking for internship opportunities and would love to
             hear from you. Whether you have a question or just want to say hi,
             feel free to reach out!
           </p>
         </AnimatedSection>
 
-        <div className="grid lg:grid-cols-2 gap-12 max-w-4xl mx-auto">
+        <div className="mx-auto grid max-w-4xl gap-6 sm:gap-8 lg:grid-cols-2 lg:gap-12">
           {/* Contact Info */}
           <AnimatedSection direction="left" delay={0.2}>
-            <div className="space-y-6">
+            <div className="space-y-4 sm:space-y-6">
               <motion.a
-                href="mailto:your.email@example.com"
-                className="flex items-start gap-4 p-4 rounded-xl bg-card border border-border hover:border-primary/50 transition-colors"
+                href={contactEmail ? `mailto:${contactEmail}` : "#"}
+                className="flex items-start gap-3 rounded-xl border border-border bg-card p-4 transition-colors hover:border-primary/50 sm:gap-4"
                 whileHover={{ x: 5 }}
                 transition={{ duration: 0.2 }}
               >
@@ -83,17 +96,17 @@ export const Contact = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold mb-1">Email</h4>
-                  <span className="text-muted-foreground hover:text-primary transition-colors">
-                    your.email@example.com
+                  <span className="break-all text-sm text-muted-foreground transition-colors hover:text-primary sm:text-base">
+                    {contactEmail || "Add VITE_CONTACT_EMAIL in .env"}
                   </span>
                 </div>
               </motion.a>
 
               <motion.a
-                href="https://linkedin.com/in/yourprofile"
+                href={linkedinUrl || "#"}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-start gap-4 p-4 rounded-xl bg-card border border-border hover:border-primary/50 transition-colors"
+                className="flex items-start gap-3 rounded-xl border border-border bg-card p-4 transition-colors hover:border-primary/50 sm:gap-4"
                 whileHover={{ x: 5 }}
                 transition={{ duration: 0.2 }}
               >
@@ -109,10 +122,10 @@ export const Contact = () => {
               </motion.a>
 
               <motion.a
-                href="https://github.com/yourusername"
+                href={githubUrl || "#"}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-start gap-4 p-4 rounded-xl bg-card border border-border hover:border-primary/50 transition-colors"
+                className="flex items-start gap-3 rounded-xl border border-border bg-card p-4 transition-colors hover:border-primary/50 sm:gap-4"
                 whileHover={{ x: 5 }}
                 transition={{ duration: 0.2 }}
               >
@@ -128,7 +141,7 @@ export const Contact = () => {
               </motion.a>
 
               <motion.div
-                className="flex items-start gap-4 p-4 rounded-xl bg-card border border-border"
+                className="flex items-start gap-3 rounded-xl border border-border bg-card p-4 sm:gap-4"
                 whileHover={{ x: 5 }}
                 transition={{ duration: 0.2 }}
               >
@@ -137,7 +150,7 @@ export const Contact = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold mb-1">Location</h4>
-                  <p className="text-muted-foreground">Your City, India</p>
+                  <p className="text-muted-foreground">{contactLocation}</p>
                 </div>
               </motion.div>
             </div>

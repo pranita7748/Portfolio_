@@ -1,6 +1,7 @@
 import { Router, type Request, type Response } from "express";
 import { z } from "zod";
 import { appendSubmission } from "../lib/store.js";
+import { sendContactNotification } from "../lib/mailer.js";
 
 const contactSchema = z.object({
   name: z.string().min(1, "Name is required").max(200),
@@ -20,7 +21,15 @@ contactRouter.post("/", (req: Request, res: Response) => {
   const { name, email, message } = parsed.data;
   try {
     const submission = appendSubmission(name, email, message);
-    return res.status(201).json({ success: true, id: submission.id });
+    sendContactNotification(submission)
+      .then((delivered) => {
+        return res.status(201).json({ success: true, id: submission.id, delivered });
+      })
+      .catch((err) => {
+        console.error("Contact email notification error:", err);
+        return res.status(201).json({ success: true, id: submission.id, delivered: false });
+      });
+    return;
   } catch (e) {
     console.error("Contact submission error:", e);
     return res.status(500).json({ success: false, error: "Failed to save message. Please try again." });

@@ -15,6 +15,10 @@ dist-ssr
 # Backend contact form submissions (user data)
 server/data/submissions.json
 
+# Environment variables
+.env
+server/.env
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

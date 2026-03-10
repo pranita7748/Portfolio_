@@ -1,8 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 @layer base {
   :root {
@@ -58,6 +57,7 @@
   body {
     @apply bg-background text-foreground font-sans antialiased;
     font-family: var(--font-sans);
+    overflow-x: hidden;
   }
 
   ::selection {
@@ -100,16 +100,16 @@
   }
 
   .code-block {
-    @apply font-mono text-sm bg-code rounded-lg p-4;
+    @apply font-mono text-sm bg-code rounded-lg p-4 overflow-x-auto;
     font-family: var(--font-mono);
   }
 
   .section-padding {
-    @apply py-20 md:py-32;
+    @apply py-16 sm:py-20 md:py-28;
   }
 
   .container-narrow {
-    @apply max-w-5xl mx-auto px-6;
+    @apply max-w-5xl mx-auto px-4 sm:px-6 lg:px-8;
   }
 
   .animate-float {

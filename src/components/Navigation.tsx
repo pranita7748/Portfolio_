@@ -48,12 +48,12 @@ export const Navigation = () => {
           </motion.a>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-5 xl:gap-8">
             {navLinks.map((link, index) => (
               <motion.a
                 key={link.name}
                 href={link.href}
-                className="text-muted-foreground hover:text-foreground transition-colors relative group"
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors relative group"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 * index }}
@@ -76,7 +76,7 @@ export const Navigation = () => {
 
           {/* Mobile Menu Button */}
           <motion.button
-            className="md:hidden p-2 text-foreground"
+            className="lg:hidden p-2 -mr-2 text-foreground"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             whileTap={{ scale: 0.9 }}
           >
@@ -92,14 +92,14 @@ export const Navigation = () => {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
-              className="md:hidden py-4 border-t border-border overflow-hidden"
+              className="lg:hidden py-4 border-t border-border overflow-hidden"
             >
-              <div className="flex flex-col gap-4">
+              <div className="flex max-h-[70vh] flex-col gap-2 overflow-y-auto pb-2">
                 {navLinks.map((link, index) => (
                   <motion.a
                     key={link.name}
                     href={link.href}
-                    className="text-muted-foreground hover:text-foreground transition-colors py-2"
+                    className="rounded-md px-1 py-2 text-muted-foreground hover:text-foreground transition-colors"
                     onClick={() => setIsMobileMenuOpen(false)}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -109,7 +109,7 @@ export const Navigation = () => {
                     {link.name}
                   </motion.a>
                 ))}
-                <Button variant="heroOutline" size="sm" className="w-fit">
+                <Button variant="heroOutline" size="sm" className="mt-2 w-full sm:w-fit">
                   Resume
                 </Button>
               </div>

@@ -38,20 +38,20 @@ export const Certifications = () => {
         {/* Section Header */}
         <AnimatedSection>
           <p className="font-mono text-primary text-sm mb-2">04. Certifications</p>
-          <h2 className="text-3xl md:text-4xl font-bold">
+          <h2 className="text-2xl font-bold sm:text-3xl md:text-4xl">
             Credentials & Learning
           </h2>
-          <p className="text-muted-foreground mt-4 max-w-2xl">
+          <p className="mt-4 max-w-2xl text-sm text-muted-foreground sm:text-base">
             Certifications that validate my continuous learning journey and commitment to skill development.
           </p>
         </AnimatedSection>
 
         {/* Certifications Grid */}
-        <StaggerContainer className="grid md:grid-cols-3 gap-6 mt-12" staggerDelay={0.15}>
+        <StaggerContainer className="mt-10 grid gap-4 sm:gap-6 md:mt-12 md:grid-cols-2 xl:grid-cols-3" staggerDelay={0.15}>
           {certifications.map((cert) => (
             <StaggerItem key={cert.title}>
               <motion.div
-                className={`p-6 rounded-xl bg-gradient-to-br ${cert.color} border border-border h-full group relative overflow-hidden`}
+                className={`group relative h-full overflow-hidden rounded-xl border border-border bg-gradient-to-br ${cert.color} p-4 sm:p-6`}
                 whileHover={{ 
                   y: -5, 
                   borderColor: "hsl(var(--primary) / 0.5)",
@@ -68,18 +68,18 @@ export const Certifications = () => {
                 <div className="relative z-10">
                   {/* Header */}
                   <div className="flex items-start justify-between mb-4">
-                    <div className="p-2 rounded-lg bg-card border border-border">
+                    <div className="rounded-lg border border-border bg-card p-2">
                       <Award className="w-6 h-6 text-primary" />
                     </div>
                     <span className="text-xs font-mono text-muted-foreground">{cert.date}</span>
                   </div>
 
                   {/* Content */}
-                  <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors">
+                  <h3 className="mb-2 text-base font-semibold transition-colors group-hover:text-primary sm:text-lg">
                     {cert.title}
                   </h3>
                   <p className="text-sm font-mono text-primary/80 mb-3">{cert.issuer}</p>
-                  <p className="text-sm text-muted-foreground mb-4">{cert.description}</p>
+                  <p className="mb-4 text-sm text-muted-foreground">{cert.description}</p>
 
                   {/* Link */}
                   <motion.a

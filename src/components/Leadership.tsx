@@ -60,10 +60,10 @@ export const Leadership = () => {
         {/* Section Header */}
         <AnimatedSection>
           <p className="font-mono text-primary text-sm mb-2">05. Leadership & Activities</p>
-          <h2 className="text-3xl md:text-4xl font-bold">
+          <h2 className="text-2xl font-bold sm:text-3xl md:text-4xl">
             Beyond the Classroom
           </h2>
-          <p className="text-muted-foreground mt-4 max-w-2xl">
+          <p className="mt-4 max-w-2xl text-sm text-muted-foreground sm:text-base">
             Active participation in college clubs and organizations has shaped my leadership skills, 
             teamwork abilities, and understanding of collaborative project management.
           </p>
@@ -71,11 +71,11 @@ export const Leadership = () => {
 
         {/* Skills Tags */}
         <AnimatedSection delay={0.2} className="mt-8 mb-12">
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
             {skills.map((skill, index) => (
               <motion.div
                 key={skill.name}
-                className="flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30"
+                className="flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-2 sm:px-4"
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
@@ -83,18 +83,18 @@ export const Leadership = () => {
                 whileHover={{ scale: 1.05 }}
               >
                 <skill.icon size={16} className="text-primary" />
-                <span className="text-sm font-medium">{skill.name}</span>
+                <span className="text-xs font-medium sm:text-sm">{skill.name}</span>
               </motion.div>
             ))}
           </div>
         </AnimatedSection>
 
         {/* Activities Timeline */}
-        <StaggerContainer className="space-y-8 mt-12" staggerDelay={0.2}>
+        <StaggerContainer className="mt-10 space-y-6 sm:mt-12 sm:space-y-8" staggerDelay={0.2}>
           {activities.map((activity, index) => (
             <StaggerItem key={activity.role + activity.organization}>
               <motion.div
-                className="relative pl-8 md:pl-12"
+                className="relative pl-6 sm:pl-8 md:pl-12"
                 whileHover={{ x: 5 }}
                 transition={{ duration: 0.2 }}
               >
@@ -112,7 +112,7 @@ export const Leadership = () => {
 
                 {/* Card */}
                 <motion.div 
-                  className="p-6 rounded-xl bg-card border border-border"
+                  className="rounded-xl border border-border bg-card p-4 sm:p-6"
                   whileHover={{ borderColor: "hsl(var(--primary) / 0.5)" }}
                   transition={{ duration: 0.3 }}
                 >
@@ -123,7 +123,7 @@ export const Leadership = () => {
                         <activity.icon className="w-5 h-5 text-primary" />
                       </div>
                       <div>
-                        <h3 className="text-lg font-semibold">{activity.role}</h3>
+                        <h3 className="text-base font-semibold sm:text-lg">{activity.role}</h3>
                         <p className="text-sm font-mono text-primary">{activity.organization}</p>
                       </div>
                     </div>

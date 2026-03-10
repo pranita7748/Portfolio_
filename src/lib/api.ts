@@ -12,7 +12,7 @@ export type ContactPayload = {
 };
 
 export type ContactResponse =
-  | { success: true; id: string }
+  | { success: true; id: string; delivered: boolean }
   | { success: false; error: string };
 
 export async function postContact(payload: ContactPayload): Promise<ContactResponse> {

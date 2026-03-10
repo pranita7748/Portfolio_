@@ -11,11 +11,11 @@ export const Footer = () => {
   return (
     <footer className="py-8 border-t border-border">
       <div className="container-narrow">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
           {/* Logo */}
           <motion.a
             href="#"
-            className="font-mono text-sm text-muted-foreground hover:text-primary transition-colors"
+            className="font-mono text-xs text-muted-foreground transition-colors hover:text-primary sm:text-sm"
             whileHover={{ scale: 1.05 }}
           >
             &lt;dev /&gt;
@@ -38,7 +38,7 @@ export const Footer = () => {
           </div>
 
           {/* Copyright */}
-          <p className="text-sm text-muted-foreground flex items-center gap-1">
+          <p className="flex items-center gap-1 text-xs text-muted-foreground sm:text-sm">
             Pranita Patil
           </p>
         </div>

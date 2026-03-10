@@ -73,17 +73,17 @@ export const Projects = () => {
         {/* Section Header */}
         <AnimatedSection>
           <p className="font-mono text-primary text-sm mb-2">03. Projects</p>
-          <h2 className="text-3xl md:text-4xl font-bold">
+          <h2 className="text-2xl font-bold sm:text-3xl md:text-4xl">
             What I've Built
           </h2>
-          <p className="text-muted-foreground mt-4 max-w-2xl">
+          <p className="mt-4 max-w-2xl text-sm text-muted-foreground sm:text-base">
             Here are some projects that showcase my skills and passion for learning. 
             Each project taught me something new and helped me grow as a developer.
           </p>
         </AnimatedSection>
 
         {/* Featured Projects */}
-        <div className="space-y-24 mt-16 mb-20">
+        <div className="mb-16 mt-10 space-y-12 sm:space-y-16 md:mb-20 md:mt-16 md:space-y-24">
           {featuredProjects.map((project, index) => (
             <AnimatedSection key={project.title} delay={index * 0.2}>
               <div
@@ -93,17 +93,17 @@ export const Projects = () => {
               >
                 {/* Image/Gradient Placeholder */}
                 <motion.div 
-                  className={`${index % 2 === 1 ? "lg:order-2" : ""}`}
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ duration: 0.3 }}
-                >
+                className={`${index % 2 === 1 ? "lg:order-2" : ""}`}
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+              >
                   <div
                     className={`aspect-video rounded-xl bg-gradient-to-br ${project.gradient} border border-border flex flex-col items-center justify-center relative overflow-hidden group`}
                   >
                     {/* Placeholder content */}
                     <div className="flex flex-col items-center justify-center text-muted-foreground z-10">
-                      <ImageIcon size={48} strokeWidth={1} />
-                      <span className="text-sm font-mono mt-2">Project Screenshot</span>
+                      <ImageIcon size={40} strokeWidth={1} />
+                      <span className="mt-2 text-xs font-mono sm:text-sm">Project Screenshot</span>
                       <span className="text-xs text-muted-foreground/60 mt-1">Upload to replace</span>
                     </div>
 
@@ -115,20 +115,20 @@ export const Projects = () => {
                 {/* Content */}
                 <div className={`${index % 2 === 1 ? "lg:order-1 lg:text-right" : ""}`}>
                   <p className="font-mono text-primary text-sm mb-2">Featured Project</p>
-                  <h3 className="text-2xl font-bold mb-4">{project.title}</h3>
+                  <h3 className="mb-4 text-xl font-bold sm:text-2xl">{project.title}</h3>
                   <motion.div 
-                    className="p-6 rounded-xl bg-card border border-border mb-4"
+                    className="mb-4 rounded-xl border border-border bg-card p-4 sm:p-6"
                     whileHover={{ borderColor: "hsl(var(--primary) / 0.3)" }}
                     transition={{ duration: 0.3 }}
                   >
-                    <p className="text-muted-foreground mb-4">{project.description}</p>
-                    <p className="text-sm text-primary/80 italic">
+                    <p className="mb-4 text-sm text-muted-foreground sm:text-base">{project.description}</p>
+                    <p className="text-xs italic text-primary/80 sm:text-sm">
                       <strong>Key Learning:</strong> {project.learnings}
                     </p>
                   </motion.div>
                   <div className={`flex flex-wrap gap-3 mb-6 ${index % 2 === 1 ? "lg:justify-end" : ""}`}>
                     {project.tech.map((tech) => (
-                      <span key={tech} className="font-mono text-sm text-muted-foreground px-2 py-1 rounded bg-secondary">
+                      <span key={tech} className="rounded bg-secondary px-2 py-1 font-mono text-xs text-muted-foreground sm:text-sm">
                         {tech}
                       </span>
                     ))}
@@ -159,15 +159,15 @@ export const Projects = () => {
 
         {/* In Progress Projects */}
         <AnimatedSection className="mb-12">
-          <h3 className="text-2xl font-bold text-center mb-2">Currently Building</h3>
-          <p className="text-muted-foreground text-center mb-8">Projects I'm actively working on</p>
+          <h3 className="mb-2 text-center text-xl font-bold sm:text-2xl">Currently Building</h3>
+          <p className="mb-8 text-center text-sm text-muted-foreground sm:text-base">Projects I'm actively working on</p>
         </AnimatedSection>
 
-        <StaggerContainer className="grid md:grid-cols-2 gap-6 mb-20" staggerDelay={0.1}>
+        <StaggerContainer className="mb-16 grid gap-4 sm:gap-6 md:mb-20 md:grid-cols-2" staggerDelay={0.1}>
           {upcomingProjects.map((project) => (
             <StaggerItem key={project.title}>
               <motion.div
-                className="p-6 rounded-xl bg-card border border-border border-dashed h-full group relative overflow-hidden"
+                className="group relative h-full overflow-hidden rounded-xl border border-border border-dashed bg-card p-4 sm:p-6"
                 whileHover={{ 
                   borderColor: "hsl(var(--primary) / 0.5)",
                   borderStyle: "solid"
@@ -180,9 +180,9 @@ export const Projects = () => {
                     In Progress
                   </span>
                 </div>
-                <h4 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors">
-                  {project.title}
-                </h4>
+                  <h4 className="mb-2 text-base font-semibold transition-colors group-hover:text-primary sm:text-lg">
+                    {project.title}
+                  </h4>
                 <p className="text-sm text-muted-foreground mb-4">{project.description}</p>
                 <div className="flex gap-2 flex-wrap">
                   {project.tech.map((tech) => (
@@ -198,14 +198,14 @@ export const Projects = () => {
 
         {/* Other Projects */}
         <AnimatedSection className="text-center mb-12">
-          <h3 className="text-2xl font-bold">Other Noteworthy Projects</h3>
+          <h3 className="text-xl font-bold sm:text-2xl">Other Noteworthy Projects</h3>
         </AnimatedSection>
 
-        <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-4 gap-4" staggerDelay={0.1}>
+        <StaggerContainer className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4" staggerDelay={0.1}>
           {otherProjects.map((project) => (
             <StaggerItem key={project.title}>
               <motion.div
-                className="p-5 rounded-xl bg-card border border-border h-full group"
+                className="group h-full rounded-xl border border-border bg-card p-4 sm:p-5"
                 whileHover={{ 
                   y: -5, 
                   borderColor: "hsl(var(--primary) / 0.5)",
