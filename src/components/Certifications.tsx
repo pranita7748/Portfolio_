@@ -27,6 +27,15 @@ const certifications = [
     link: "https://www.linkedin.com/in/pranita-patil-0685762a8/details/certifications/",
     color: "from-primary/20 to-pink-500/20",
   },
+  {
+  title: "AWS Academy Graduate - Cloud Foundations",
+  issuer: "Amazon Web Services (AWS)",
+  description:
+    "Foundational training in cloud computing concepts, AWS core services, security, architecture, pricing, and support. Demonstrates understanding of AWS Cloud fundamentals and cloud adoption best practices.",
+  date: "2026",
+  link: "https://www.credly.com/badges/77a58be1-76a9-405a-8d3e-35c24c1162ad",
+  color: "from-orange-500/20 to-yellow-500/20",
+},
 ];
 
 export const Certifications = () => {

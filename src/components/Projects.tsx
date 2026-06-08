@@ -4,18 +4,27 @@ import { AnimatedSection, StaggerContainer, StaggerItem } from "./AnimatedSectio
 import { motion } from "framer-motion";
 
 const featuredProjects = [
-  {
-    title: "Smart Hostel Management System",
-    description:
-      "A comprehensive hostel management solution featuring room allocation, complaint tracking, mess management, and admin dashboard. Streamlines hostel operations for students and administrators.",
-    tech: ["HTML", "CSS", "JavaScript", "Python", "Database"],
-    learnings: "Learned full-stack development, database design, and user authentication systems.",
-    github: "#",
-    live: "#",
-    gradient: "from-cyan-400/20 via-sky-500/20 to-blue-500/20",
-    image: "/finiq.jpeg",
-    status: "completed",
-  },
+ {
+  title: "Sakhi - Mahila Bachat Gat Management System",
+  description:
+    "A comprehensive self-help group management application designed for Mahila Bachat Gat groups. Features member management, savings and loan tracking, digital passbooks, multilingual support, financial reports, and role-based access for CRPs and Group Presidents.",
+  tech: [
+    "React Native",
+    "Expo",
+    "Firebase",
+    "Firestore",
+    "AsyncStorage",
+    "React Navigation",
+    "i18next"
+  ],
+  learnings:
+    "Learned mobile application development, offline-first architecture, Firebase integration, state management with Context API, multilingual implementation, and role-based access control.",
+  github: "#",
+  live: "#",
+  gradient: "from-purple-400/20 via-violet-500/20 to-pink-500/20",
+  image: "/sakhi.png",
+  status: "completed"
+},
 
   {
     title: "SkillBridge - SDG 1 (No Poverty) Empowerment Platform",
@@ -27,7 +36,7 @@ const featuredProjects = [
     github: "#",
     live: "#",
     gradient: "from-emerald-400/20 via-cyan-500/20 to-blue-500/20",
-    image: "/waaal.jpeg",
+    image: "/SDG.png",
     status: "completed",
   },
 ];
@@ -41,10 +50,19 @@ const upcomingProjects = [
   "status": "in-progress"
 },
  {
-  "title": "SakhiSeva: Smart Self-Help Group Management System",
-  "description": "A mobile-first platform designed for rural women self-help groups (Bachat Gat) to digitally manage member records, monthly savings, and payment tracking. The app includes voice guidance in local languages, simple icon-based navigation, and real-time dashboards for group leaders to easily monitor payments and member information.",
-  "tech": ["React Native", "Node.js", "Express.js", "PostgreSQL", "Firebase", "Voice AI (Speech-to-Text)", "Cloud Storage"],
-  "status": "in-progress"
+  title: "Smart Hostel Management System",
+  description:
+    "A mobile-first platform designed for students and hostel administrators to efficiently manage room allocation, complaints, mess services, and attendance records. The system provides a centralized dashboard, streamlined communication, and real-time updates to simplify hostel operations and improve the overall residential experience.",
+  tech: [
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "Python",
+    "Database",
+    "Authentication System",
+    "Cloud Storage"
+  ],
+  status: "completed"
 },
   {
     title: "Nashik Hall Booking and Event Manager",

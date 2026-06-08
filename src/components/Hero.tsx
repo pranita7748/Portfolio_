@@ -205,7 +205,7 @@ export const Hero = () => {
                 
                 { 
                 <img 
-                  src="/finiq.jpeg" 
+                  src="/pranitap.jpeg" 
                   alt="Pranita Patil" 
                   className="absolute inset-0 w-full h-full object-cover rounded-2xl"
                 />
