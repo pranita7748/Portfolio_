@@ -3,8 +3,11 @@ services:
     name: my-portfolio
     runtime: node
     plan: free
+    branch: main
+    autoDeploy: true
     buildCommand: npm install && npm install --prefix server && npm run build
     startCommand: npm run start
+    healthCheckPath: /api/health
     envVars:
       - key: NODE_VERSION
         value: 20
